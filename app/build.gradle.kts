@@ -1,8 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    id("com.google.devtools.ksp") version "1.9.10-1.0.13"
-    id("com.google.dagger.hilt.android") version "2.48"
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -37,6 +37,10 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+
+    viewBinding {
+        enable = true
+    }
 }
 
 dependencies {
@@ -46,6 +50,7 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
+    implementation(libs.javapoet)
     implementation(libs.androidx.constraintlayout)
 
     // Testing
@@ -60,10 +65,12 @@ dependencies {
 
     // Hilt DI
     implementation(libs.hilt.android)
-    ksp(libs.hilt.android.compiler)
+    kapt (libs.hilt.compiler)
 
     
     // Views/Fragments integration
     implementation(libs.androidx.navigation.fragment)
     implementation(libs.androidx.navigation.ui)
+
+    implementation(libs.kotlinx.coroutines.android)
 }
