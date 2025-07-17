@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
 class HomeFragment : Fragment() {
 
     override fun onCreateView(

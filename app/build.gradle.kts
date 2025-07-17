@@ -1,8 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    id("kotlin-kapt")
-    id("com.google.dagger.hilt.android")
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.hilt.android)
+
 }
 
 android {
@@ -30,12 +31,12 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
     }
 
     viewBinding {
@@ -44,13 +45,11 @@ android {
 }
 
 dependencies {
-
     // AndroidX core dependencies
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
-    implementation(libs.javapoet)
     implementation(libs.androidx.constraintlayout)
 
     // Testing
@@ -63,14 +62,19 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
 
-    // Hilt DI
-    implementation(libs.hilt.android)
-    kapt (libs.hilt.compiler)
-
-    
-    // Views/Fragments integration
+    // Navigation
     implementation(libs.androidx.navigation.fragment)
     implementation(libs.androidx.navigation.ui)
 
+    // Coroutines
     implementation(libs.kotlinx.coroutines.android)
+
+    // Views/Fragments integration
+    implementation(libs.androidx.navigation.fragment.v292)
+    implementation(libs.androidx.navigation.ui.v292)
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
+
+
+
 }
