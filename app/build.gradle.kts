@@ -1,8 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.ksp)
     alias(libs.plugins.hilt.android)
+    kotlin("kapt")
 
 }
 
@@ -72,8 +72,10 @@ dependencies {
     // Views/Fragments integration
     implementation(libs.androidx.navigation.fragment.v292)
     implementation(libs.androidx.navigation.ui.v292)
+
+    //hilt
     implementation(libs.hilt.android)
-    ksp(libs.hilt.compiler)
+    kapt(libs.hilt.compiler)
 
 
 

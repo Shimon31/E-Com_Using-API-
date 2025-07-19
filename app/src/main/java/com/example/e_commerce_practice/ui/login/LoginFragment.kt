@@ -48,6 +48,8 @@ class LoginFragment : Fragment() {
 
             handleLogin("john@mail.com", "changeme")
 
+            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+
         }
 
     }
