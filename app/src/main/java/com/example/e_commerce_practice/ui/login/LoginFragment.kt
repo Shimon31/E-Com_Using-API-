@@ -7,13 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.example.e_commerce_practice.Base.BaseFragment
 import com.example.e_commerce_practice.R
 import com.example.e_commerce_practice.data.model.login.RequestLogin
 import com.example.e_commerce_practice.databinding.FragmentLoginBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class LoginFragment : Fragment() {
+class LoginFragment : BaseFragment<FragmentLoginBinding>() {
 
     lateinit var binding: FragmentLoginBinding
     val viewModel: LoginViewModel by viewModels()
